@@ -1,8 +1,13 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css');
-@import url('https://fonts.googleapis.com/css?family={{fontName}}');
-
+@font-face {
+    font-family: "PixelatedElegance";
+    src: url("https://goldentemplar.github.io/templars-secret-stash/assets/fonts/PixelatedEleganceRegular-ovawB.ttf")
+        format("truetype");
+    font-weight: normal;
+    font-style: normal;    
+}
 * {
-    font-family: '{{fontName}}', sans-serif;
+    font-family: "PixelatedElegance", monospace;
     color: {{fontColor}};
     overflow: hidden;
     font-weight: {{fontWeight}};
@@ -22,10 +27,9 @@
 
 .message-row{
     flex: 0 0 auto;
-    width:100%;
-    margin-bottom:5px;
-    background-color:{{backgroundColor}};
-    padding:5px;
+    width:600px;
+    margin-bottom:12px;
+    position: relative;
     vertical-align: baseline;
 }
 
@@ -34,20 +38,48 @@
     height:{{fontSize}}px;
 }
 
-.user-box{
-    display:inline;
-    font-size:{{fontSize}}px;
-}
+.user-message {
+    display: block;
+    position: relative;
+    z-index: 1;
 
+    width: 600px;
+    min-height: 80px;
+
+    background-image: url("YOUR_MESSAGE_BOX_URL");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+
+    padding: 20px 24px;
+    box-sizing: border-box;
+
+    font-size: {{fontSize}}px;
+    word-wrap: break-word;
+}
+.user-box {
+    display: block;
+    position: relative;
+    z-index: 2;
+
+    width: fit-content;
+
+    background-image: url("YOUR_NAMEPLATE_URL");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+
+    padding: 6px 16px;
+
+    margin-left: 24px;
+    margin-bottom: -8px;
+}
+.user-box,
+.user-message {
+    image-rendering: pixelated;
+}
 .user-box > span{
     font-size:{{fontSize}}px;
 }
-
-.user-message{
-    display:inline;
-    font-size:{{fontSize}}px;
-    word-wrap: break-word;
-}
+   
 
 .emote{
     height: {emoteSize}px;
